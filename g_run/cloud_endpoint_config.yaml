@@ -1,0 +1,97 @@
+swagger: '2.0'
+info:
+  title: Protected API with a Service account
+  description: Protected API with a Service account
+  version: v2
+host: "e-app-gateway-rmgdphogrq-uc.a.run.app"
+x-google-endpoints:
+- name: "e-app-gateway-rmgdphogrq-uc.a.run.app"
+  allowCors: True
+schemes:
+  - https
+produces:
+  - application/json
+x-google-backend:
+  address: "https://e-app-rmgdphogrq-uc.a.run.app"
+  protocol: h2
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"
+  google_service_account:
+    authorizationUrl: ""
+    flow: "implicit"
+    type: "oauth2"
+    x-google-issuer: "securetoken.google.com/envelopes-370717"
+    x-google-jwks_uri: "https://www.googleapis.com/robot/v1/metadata/x509/envelopes@envelopes-370717.iam.gserviceaccount.com"
+    #x-google-audiences: "https://e-app-rmgdphogrq-uc.a.run.app"
+    x-google-audiences: "envelopes-370717"
+paths:
+  /set:  # Method 1
+    get:
+      summary: Set the queues with files
+      operationId: set
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: ""
+      security:
+      - google_service_account: []
+  /get-next-plot/{plot_type}:  # Method 1
+    get:
+      description: Get the next file to plot
+      operationId: getNextPlot
+      parameters:
+      - in: path
+        name: plot_type
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ""
+      security:
+      - google_service_account: []
+  /successful-plot/{plot_file}:  # Method 2
+    get:
+      description: Confirm plot was successful
+      operationId: successfulPlot
+      parameters:
+      - in: path
+        name: plot_file
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ""
+      security:
+      - google_service_account: []
+  /failed-plot/{failed_file}:  # Method 3
+    get:
+      description: Track plot did not work
+      operationId: failedPlot
+      parameters:
+      - in: path
+        name: failed_file
+        required: true
+        type: string
+        description: ''
+      responses:
+        200:
+          description: ""
+      security:
+      - google_service_account: []
+  /check-queues:  # Method 5
+    get:
+      description: Return queue counts
+      operationId: checkQueues
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: ""
+      security:
+      - google_service_account: []
