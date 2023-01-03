@@ -25,10 +25,10 @@ my_name = "Foo bar"
 for header in [auth_header]:
     # Method 1
     resp = requests.get(f"{url}/set", verify=True, headers=header)
-    #resp = requests.get(f"{url}/get-next-plot/Envelope", verify=True, headers=header)
-    #resp = requests.get(f"{url}/check-queues", verify=True, headers=header)
-    #resp = requests.get(f"{url}/successful-plot/Casey - Stake - Insert 25.svg", verify=True, headers=header)
-    #resp = requests.get(f"{url}/failed-plot/Casey - Stake - Insert 25.svg", verify=True, headers=header)
+    # resp = requests.get(f"{url}/get-next-plot/Envelope", verify=True, headers=header)
+    # resp = requests.get(f"{url}/check-queues", verify=True, headers=header)
+    # resp = requests.get(f"{url}/successful-plot/Casey - Stake - Insert 25.svg", verify=True, headers=header)
+    # resp = requests.get(f"{url}/failed-plot/Casey - Stake - Insert 25.svg", verify=True, headers=header)
     print(resp.content.decode())
     #Remove first two characters and the last character from response
     file = resp.content.decode()[2:-1]

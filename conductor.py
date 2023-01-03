@@ -18,9 +18,9 @@ pod_dict = {
         "numberOfStacks": 2
     },
     "pod2": {
-        "robot": "COM5",
-        "plotter1": "COM22",
-        "plotter2": "COM26", 
+        "robot": "COM26",
+        "plotter1": "COM4",
+        "plotter2": "COM6", 
         "type": "Envelope",
         "full": 300,
         "half": 175,
