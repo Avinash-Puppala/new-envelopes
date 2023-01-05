@@ -8,7 +8,7 @@ import time
 #create a global dictionary containing two plotters and one robot arm
 pod_dict = {
     "pod1": {
-        "robot": "COM26",
+        "robot": "COM8",
         "plotter1": "COM4",
         "plotter2": "COM6",
         "type": "Envelope",
@@ -18,7 +18,7 @@ pod_dict = {
         "numberOfStacks": 2
     },
     "pod2": {
-        "robot": "COM26",
+        "robot": "COM8",
         "plotter1": "COM4",
         "plotter2": "COM6", 
         "type": "Envelope",
@@ -64,11 +64,11 @@ async def function_2(type):
     #run robot arm code 
     if type == "place":
         print("Placing now")
-        rp = subprocess.Popen(["python", "uArm-Python-SDK/examples/test/run_robo.py", "place", plot_type, pod, str(current_count)])
+        rp = subprocess.Popen(["python", "run_robo.py", "place", plot_type, pod, str(current_count)])
         exitCode=rp.wait()
     elif type == "remove":
         print("Removing")
-        rp2 = subprocess.Popen(["python", "uArm-Python-SDK/examples/test/run_robo.py", "remove", plot_type, pod, str(current_count)])
+        rp2 = subprocess.Popen(["python", "run_robo.py", "remove", plot_type, pod, str(current_count)])
         exitCode=rp2.wait()
     
     return 0

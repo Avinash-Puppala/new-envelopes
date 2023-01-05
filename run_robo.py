@@ -7,7 +7,7 @@ import sys
 
 pod_dict = {
     "pod1": {
-        "robot": "COM26",
+        "robot": "COM8",
         "plotter1": "COM4",
         "plotter2": "COM6",
         "type": "Envelope",
@@ -17,7 +17,7 @@ pod_dict = {
         "numberOfStacks": 2
     },
     "pod2": {
-        "robot": "COM5",
+        "robot": "COM8",
         "plotter1": "COM22",
         "plotter2": "COM26", 
         "type": "Envelope",
