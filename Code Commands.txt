@@ -1,0 +1,15 @@
+ bash -c "(gcloud run deploy e-app-gateway --image 'gcr.io/endpoints-runtime-serverless:2.17.0' --allow-unauthenticated --platform managed --project envelopes-370717 --region us-central1)"
+
+
+gcloud run deploy envelope_app --image gcr.io/envelopes-370717/envelope_app:v1 --region us-central1 --platform managed --memory 256Mi --no-allow-unauthenticated
+
+gcloud run deploy e_app\
+ --image gcr.io/envelopes-37071/e_app:v1 \
+ --region us-central1 \
+ --platform managed \
+ --memory 256Mi
+ --no-allow-unauthenticated
+
+docker build -t gcr.io/envelopes-370717/e-app:v1 -f Dockerfile
+
+docker push gcr.io/envelopes-370717/e-app:v1

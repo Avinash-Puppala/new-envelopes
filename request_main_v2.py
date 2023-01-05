@@ -24,8 +24,8 @@ my_name = "Foo bar"
 # Request 1) without header and 2) with header
 for header in [auth_header]:
     # Method 1
-    resp = requests.get(f"{url}/set", verify=True, headers=header)
-    # resp = requests.get(f"{url}/get-next-plot/Envelope", verify=True, headers=header)
+    # resp = requests.get(f"{url}/set", verify=True, headers=header)
+    resp = requests.get(f"{url}/get-next-plot/Envelope", verify=True, headers=header)
     # resp = requests.get(f"{url}/check-queues", verify=True, headers=header)
     # resp = requests.get(f"{url}/successful-plot/Casey - Stake - Insert 25.svg", verify=True, headers=header)
     # resp = requests.get(f"{url}/failed-plot/Casey - Stake - Insert 25.svg", verify=True, headers=header)
